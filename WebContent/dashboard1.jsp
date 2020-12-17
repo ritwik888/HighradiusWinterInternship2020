@@ -298,9 +298,11 @@ form.popUpForm input[type=submit]
 		<%
 			}
 		%>
+		
+		<!-- Search form -->
 		<form class="search" id = "searchForm">
   		<button type="submit" class = "searchButton"><i class="fa fa-search"></i></button>
-  		<input type="number" placeholder="Search.." name = "searchQry">
+  		<input type="number" placeholder="Search.." name = "searchQry" onkeyup = "searchChange()" id="searchQry">
   		<input type = "hidden" value = "0" name = "page">
 		</form>
 		</div>
@@ -321,6 +323,29 @@ form.popUpForm input[type=submit]
 	</div>
 	
 	<script>
+	function searchChange()
+	{
+		var searchQry = document.getElementById("searchQry").value;
+		console.log(searchQry);
+		if(searchQry.length >=3)
+			{
+				var form = document.getElementById("searchForm");
+				$.ajax({
+					type : "post",
+					url : "table.jsp",
+					data : {searchQry : searchQry, page : 0},
+					success : function(data)
+					{
+						$("#tabledata").html(data);
+						i=0;
+						max = document.getElementById("maxpage").value;
+						//call function to make checkbox behave as radio button
+						makeCheckBoxRadio();
+						update();
+					}
+				})
+			}
+	}
 		/* When document is ready, get the first set of values of the table by makin ajax call. */
 		$(document).ready(function (e){			
 			$.ajax({

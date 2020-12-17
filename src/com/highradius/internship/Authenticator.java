@@ -29,7 +29,15 @@ class Authenticator {
 				user = new User();
 				user.setCurrentPage(new Integer(0));
 				user.setUsername(set.getString("username"));
-				int level = set.getInt(1);
+				String userLevel = set.getString(4);
+				System.out.println(userLevel);
+				int level = 1;
+				if(userLevel.equals("Level 1"))
+					level = 1;
+				else if(userLevel.equals("Level 2"))
+					level = 2;
+				else if(userLevel.equals("Level 3"))
+					level = 3;
 				user.setLevel(level);
 				String range = set.getString(5);
 				user.setRange(range);

@@ -68,6 +68,8 @@ border : 0px;
 			</div>
 			<div
 				style="width: 60%; position: absolute; right: 0px; display: inline-block">
+				
+				<!-- Login form -->
 				<form class=  "myform" action="loginServlet" method="post">
 				<p style="color:#BDBDBD; font-size : 25px;">Sign in</p>
 					<label class = "mylable">Username</label><br>

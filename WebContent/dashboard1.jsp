@@ -290,6 +290,7 @@ form.popUpForm input[type=submit]
 			{
 				/* If level 2 or level 3 user is logged in show the APPROVE and REJECT buttons */
 		%>
+		<!-- Form to submit accept and reject order ID -->
 		<form>
 		<input type = "hidden" id = "orderID">
 		</form>
@@ -323,6 +324,7 @@ form.popUpForm input[type=submit]
 	</div>
 	
 	<script>
+	/* Dunction to implement dynamic search */
 	function searchChange()
 	{
 		var searchQry = document.getElementById("searchQry").value;
